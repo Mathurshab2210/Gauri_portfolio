@@ -1,0 +1,271 @@
+:root {
+    --hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
+    --returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  body {
+    /*margin: 40px 0;*/
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #BCAAA4;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .title {
+    font-size: 34px;
+    font-weight: 700;
+    color: #5D4037; /* Classic brown tone */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), 
+                 0 0 10px rgba(93, 64, 55, 0.3); /* subtle 3D classic effect */
+    font-family: "Playfair Display", serif; /* classic serif font */
+}
+  
+  p {
+    line-height: 1.5em;
+    margin: 0;
+  }
+  
+  h1 + p,
+  p + p {
+    margin-top: 10px;
+  }
+  
+  .container {
+    padding-top: 10px;
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card-wrap {
+    margin: 10px;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  
+  /* Hover Effects */
+  .card-wrap:hover .card-info {
+    transform: translateY(0);
+    transition: 0.6s var(--hoverEasing);
+  }
+  
+  .card-wrap:hover .card-info p {
+    opacity: 1;
+    transition: 0.6s var(--hoverEasing);
+  }
+  
+  .card-wrap:hover .card-info::after {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 5s var(--hoverEasing);
+  }
+  
+  .card-wrap:hover .card-bg {
+    opacity: 0.8;
+    transition: 0.6s var(--hoverEasing), opacity 5s var(--hoverEasing);
+  }
+  
+  .card-wrap:hover .card {
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0 0 40px 5px,
+      rgba(255, 255, 255, 1) 0 0 0 1px,
+      rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+      inset #333 0 0 0 5px,
+      inset #fff 0 0 0 6px;
+    transition: 0.6s var(--hoverEasing), box-shadow 2s var(--hoverEasing);
+  }
+  
+  /* Card Base */
+  .card {
+    position: relative;
+    width: 240px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #333;
+  
+    box-shadow:
+      rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+      inset #333 0 0 0 5px,
+      inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+  
+    transition: 1s var(--returnEasing);
+  }
+  
+  /* Background Image Layer */
+  .card-bg {
+    opacity: 0.5;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+  
+    transition: 1s var(--returnEasing), opacity 5s 1s var(--returnEasing);
+  }
+  
+  /* Info Layer */
+  .card-info {
+    padding: 15px;
+    position: absolute;
+    bottom: 2px;
+    color: #fff;
+    transform: translateY(40%);
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  
+  .card-info p {
+    opacity: 0;
+    transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    text-shadow: rgba(0, 0, 0, 1) 0 2px 3px;
+    bottom: 5px;
+  }
+  
+  .card-info::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  
+    background-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+  
+    transform: translateY(100%);
+    transition: 5s 1s var(--returnEasing);
+  }
+  
+  .card-info h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+  }
+
+/* About Me Section */
+.about-me {
+    width: 100%;
+    padding: 80px 20px;
+    background-color: #f9f3f0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .profile-container {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* space between image, text, QR */
+    max-width: 1000px;
+    flex-wrap: wrap;
+  }
+  
+  /* Profile Image */
+  .profile-image {
+    flex: 0 0 250px;
+    display: flex;
+    justify-content: center;
+
+  }
+  .profile-image .circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ca6060;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    transition: transform 0.3s ease;
+  }
+  .profile-image .circle:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+  
+  /* About Me Text */
+  .profile-text {
+    flex: 2 1 400px;
+  }
+  .profile-text h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 36px;
+    color: #5D4037;
+    margin-bottom: 24px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  .profile-text p {
+    font-family: 'Sumana', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #404245;
+  }
+  
+  /* QR Section */
+  .profile-qr {
+    flex: 0 0 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    
+  }
+  .profile-qr .qr-code {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 30%;
+    object-fit: cover;
+    border: 5px solid #ca6060;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  .profile-qr .qr-code:hover {
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 900px) {
+    .profile-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+    .profile-qr {
+      flex: 0 0 auto;
+    }
+  }
+  .profile-contact {
+    position: absolute;
+    right: 20;
+    /* top: 10%; */
+   /* transform: translateY(-50%); */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: right;
+  }
+  
+  .profile-contact .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  

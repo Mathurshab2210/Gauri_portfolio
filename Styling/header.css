@@ -1,0 +1,59 @@
+
+/* HEADER / HERO SECTION */
+.parallax-header {
+    width: 100%;
+    height: 30vh;  /* adjust height as you like */
+    
+    background: url("https://raw.githubusercontent.com/hudsonmarinho/header-and-footer-parallax-effect/master/assets/images/bg-header.jpg")
+                no-repeat center/cover;
+
+    display: flex;
+    flex-direction: column;   /* <-- fixes tagline below */
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.parallax-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.2);
+    z-index: -1;
+}
+
+/* MAIN TITLE */
+.parallax-header h1 {
+    color: white;
+    font-size: 80px;
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    margin: 0; /* removes spacing */
+    padding: 0;
+}
+
+/* TAGLINE */
+.parallax-header .tagline {
+    margin-top: 10px;
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.9;   /* control brightness */
+}
+
+/* Shift main content below fixed header */
+.main-content {
+    position: relative;
+    margin-top: 10vh;
+}
