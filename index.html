@@ -3,50 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art By Gauri</title>
+    <title> Art by Gauri</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="Styling/styles.css">
     <link rel="stylesheet" href="Styling/header.css">
+     <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
     <!-- PARALLAX HEADER -->
-    <header class="parallax-header">
-        <h1>Art By Gauri</h1>
-        <p class="tagline">Chase Your Dreams</p>
-    </header>
-    <section class="about-me">
-        <div class="profile-container">
+    <header class="nav-header">
+        <div class="nav-left">
+          <img src="images/logo.png" alt="Logo" />
+        </div>
+      
+        <div class="nav-center">Art By Gauri</div>
+      
+        <div class="nav-right">
+          <i class="fa-solid fa-phone"></i>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+      </header>
+
+
+      <section class="welcome-section">
+        <div class="welcome-content">
+            <span class="welcome-tag">Welcome on board</span>
+    
+            <h1>
+                Where <span>emotions</span><br>
+                turn into <span>art</span>
+            </h1>
+    
+            <p>
+                Step into a world of colors, stories, and soulful expressions
+                crafted with intention.
+            </p>
+    
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+
+      <section class="about-me">
+        <div class="profile-container reveal">
+      
           <!-- Profile Image -->
-          <div class="profile-image">
+          <div class="profile-image floating">
             <img src="https://miro.medium.com/v2/resize:fit:2400/1*0bOVMm8lrTEMk4PYDLog2w.jpeg" 
-                 alt="Your Photo" class="circle">
+                 alt="Gauri" class="circle">
           </div>
       
           <!-- About Me Text -->
           <div class="profile-text">
             <h2>About Me</h2>
             <p>
-              Hi! I’m Gauri, a passionate artist who loves bringing creativity to life. I specialize in painting, sketching, and digital art. My mission is to inspire and share beauty through every stroke.
+              Hi, I’m <strong>Gauri</strong> — an artist who believes emotions live in colors.
+              From paintings to sketches and digital art, my work reflects stories, moods,
+              and moments crafted with intention and soul.
             </p>
           </div>
       
           <!-- Instagram QR -->
-          <div class="profile-qr">
-            <img src="images\Screenshot 2025-12-11 230154.png" alt="Instagram QR" class="qr-code">
+          <div class="profile-qr floating">
+            <img src="images/Screenshot 2025-12-11 230154.png" alt="Instagram QR" class="qr-code">
             <p>@ART_BY_GAURI_</p>
           </div>
-          <!-- <div class="profile-contact">
-            <p><img src="/mnt/data/31a8a082-8728-4e0d-aad0-f88fa849a9c8.png" alt="Phone Icon" class="icon"> +91 7039626602</p>
-            <p><img src="/mnt/data/31a8a082-8728-4e0d-aad0-f88fa849a9c8.png" alt="Email Icon" class="icon"> artbygauristudio@gmail.com</p>
-            <p><img src="/mnt/data/31a8a082-8728-4e0d-aad0-f88fa849a9c8.png" alt="Location Icon" class="icon"> Mumbai</p>
-          </div> -->
+      
+        </div>
+      </section>
+   
+<!--carousel start-->
+
+
+
+<!--carousel end-->
+
+<!-- story section-->
+      <section class="story-section reveal_mf">
+        <div class="story-container">
+      
+          <!-- Text -->
+          <div class="story-text">
+            <h2>Made for you.</h2>
+            <p>
+              Every artwork begins with a feeling.  
+              From personalized commissions to expressive originals, each piece
+              is created using high-quality artist-grade materials and thoughtful
+              attention to detail.
+            </p>
+            <p>
+              Whether it’s a gift for someone special or a quiet addition to your
+              space, the process is slow, intentional, and deeply personal.
+            </p>
+          </div>
+      
+          <!-- Image -->
+          <div class="story-image floating-soft">
+            <img src="images/c3.png" alt="Artist at work">
+          </div>
+      
         </div>
       </section>
       
-      
+         
       
     <!-- MAIN CONTENT -->
     <div class="main-content">
@@ -121,6 +188,7 @@
     <!-- JS -->
     <script src="JS/header.js"></script>
     <script src="JS/home.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 </html>
