@@ -12,21 +12,23 @@ body {
     font-family: "Raleway", sans-serif;
     font-size: 14px;
     font-weight: 500;
-
-    /* Soft artistic purple background */
-    background: linear-gradient(
-        135deg, 
-        #e993e6,
-        #b2d1ea,
-        #d7c5ff
-    );
-
     color: #2e1a47;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
 
-    animation: fadeInBody 0.9s ease-in-out;
+    /* Modern soft pastel gradient background */
+    background: linear-gradient(
+        135deg,
+        #f5f7fa 0%,
+        #e4e9f0 50%,
+        #d9e2ef 100%
+    );
+
+    /* Smooth fade-in */
+    animation: fadeInBody 1s ease-in-out;
 }
+
+/* Fade-in animation */
 @keyframes fadeInBody {
     from {
         opacity: 0;
@@ -37,7 +39,6 @@ body {
         transform: translateY(0);
     }
 }
-
 section {
     animation: sectionReveal 0.8s ease forwards;
     opacity: 0;
