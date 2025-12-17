@@ -71,7 +71,10 @@ section {
   p + p {
     margin-top: 10px;
   }
-  
+  .card-bg,
+.card-info {
+  pointer-events: none;
+}
   .container {
     padding-top: 10px;
     padding: 20px 30px;
@@ -193,7 +196,7 @@ section {
     font-weight: 700;
     text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
   }
-
+  
 /* About Me Section */
 /* ==============================
    ABOUT ME – SECTION WRAPPER
@@ -584,7 +587,7 @@ section {
 /* ================= FULLSCREEN carousel SECTION ================= */
 
 .fullscreen-carousel {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -604,37 +607,43 @@ section {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-
+    object-fit: cover; 
+  
     opacity: 0;
-    transform: scale(1.05);
-    animation: display 12s infinite;
-}
+    transform: translateY(8px);
+    animation: fadeGallery 15s infinite ease-in-out;
+  }
 
+  
+  @keyframes fadeGallery {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    30% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    40% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+  
 /* ================= ANIMATION ================= */
 
-@keyframes display {
-    0% {
-        opacity: 0;
-        transform: scale(1.08);
-    }
-    10% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    30% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    40% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.02);
-    }
-}
 
 /* ================= DELAYS ================= */
 
@@ -667,4 +676,153 @@ section {
         rgba(0,0,0,0.35)
     );
     pointer-events: none;
+}
+/* // =================  gallery STYLES ================= // */
+
+/* ---------------- Carousel Section ---------------- */
+.vg-carousel-section {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 0;
+    overflow: hidden;
+}
+
+.vg-carousel-wrapper {
+    position: relative; /* for buttons positioning */
+}
+
+.vg-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.vg-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Previous / Next Buttons */
+.vg-prev,
+.vg-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 10;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.vg-prev { left: 10px; }
+.vg-next { right: 10px; }
+
+.vg-prev:hover,
+.vg-next:hover {
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* ---------------- Gallery Styles ---------------- */
+.vg-gallery {
+    margin: auto;
+    max-width: 1000px;
+    padding: 1rem;
+    perspective: 1200px; /* for subtle 3D effect */
+}
+
+.vg-gallery img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid #665e57;
+    padding: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(145, 147, 164, 0.5);
+    border-radius: 8px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
+}
+
+.vg-gallery img:hover {
+    transform: scale(1.08) rotateZ(1deg);
+    box-shadow: 0px 12px 24px rgba(0,0,0,0.35);
+    filter: brightness(1.1);
+}
+
+.vg-gallery .vg-image:hover {
+    transform: rotateY(3deg) rotateX(2deg);
+}
+
+/* ---------------- Text Styles ---------------- */
+.vg-text {
+    grid-area: 2/2/5/5;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.vg-text h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin: 0.2rem 0;
+    border-top: 2px solid #776b5e;
+    border-bottom: 3px solid #ecd68c;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.vg-text h1:hover {
+    transform: translateY(-5px);
+    color: #5a3d99;
+}
+
+.vg-text p {
+    font-family: 'Alegreya', serif;
+    font-size: 1.5rem;
+    color: #3f3f3e;
+    letter-spacing: 5px;
+}
+
+.vg-text span {
+    font-size: 2rem;
+    color: red;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.vg-text span:hover {
+    transform: scale(1.3);
+    color: #ff4c4c;
+}
+
+/* ---------------- Grid Layout for Images ---------------- */
+.vg-image1 { grid-area: 1/1/3/2; }
+.vg-image2 { grid-area: 1/2/2/4; }
+.vg-image3 { grid-area: 1/5/4/6; }
+.vg-image4 { grid-area: 3/1/6/2; }
+.vg-image5 { grid-area: 5/3/6/5; }
+.vg-image6 { grid-area: 4/5/6/6; }
+
+@media screen and (min-width: 700px){
+    .vg-gallery {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: 1fr 0.1fr 0.8fr 0.1fr 1fr;
+        grid-template-rows: 24vh 10vh 15vh 10vh 24vh;
+        grid-gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 701px){
+    .vg-image {
+        margin-bottom: 1rem;
+    }
+    .vg-gallery {
+        display: block; /* stack images on mobile */
+    }
 }
