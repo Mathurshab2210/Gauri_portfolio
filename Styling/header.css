@@ -3,8 +3,8 @@
     width: 100%;
     background: linear-gradient(
         180deg,
-        rgba(211, 92, 241, 0.65),
-        rgba(186, 120, 255, 0.55)
+        rgb(42, 6, 66),
+        rgba(69, 21, 192, 0.877)
     );
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 42px;
+    padding: 0 42px;    
     box-sizing: border-box;
 
     position: sticky;
@@ -30,8 +30,8 @@
 .nav-header.scrolled {
     background: linear-gradient(
         180deg,
-        rgba(231, 143, 234, 0.85),
-        rgba(190, 140, 255, 0.8)
+        rgb(42, 6, 66),
+        rgba(69, 21, 192, 0.877)
     );
     box-shadow: 0 14px 30px rgba(90, 60, 160, 0.25);
 }
@@ -39,7 +39,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: #3e2a7a;
+    color: #f7f7fe;
 
     font-size: 26px;
     font-weight: 600;
@@ -53,7 +53,7 @@
 
 .nav-header:hover .nav-center {
     letter-spacing: 2px;
-    text-shadow: 0 0 14px rgba(155,140,255,0.45);
+    text-shadow: 0 0 14px rgba(0, 0, 0, 0.932);
 }
 .nav-right {
     display: flex;
@@ -78,7 +78,7 @@
 }
 
 .icon-wrap:hover {
-    background: rgba(255,255,255,0.18);
+    background: rgba(231, 229, 229, 0.985);
     transform: translateY(-2px) scale(1.1);
 }
 .nav-right i {
@@ -88,7 +88,7 @@
 }
 
 .icon-wrap:hover i {
-    color: #9B8CFF;
+    color: #1a1153;
 }
 .icon-wrap.insta:hover i {
     color: #E1306C;
@@ -100,7 +100,7 @@
     left: 50%;
     transform: translateX(-50%) translateY(6px);
 
-    background: rgba(60,40,120,0.9);
+    background: rgba(182, 170, 216, 0.9);
     color: #fff;
 
     font-size: 12px;
@@ -167,6 +167,7 @@
 .nav-header.scrolled .logo-wrap {
     background: rgba(255,255,255,0.25);
 }
+
 
 /* ================= RESPONSIVE SAFETY ================= */
 
@@ -262,9 +263,9 @@
 }
 
 
+
 /* Shift main content below fixed header */
 .main-content {
     position: relative;
     margin-top: 1vh;
 }
-
