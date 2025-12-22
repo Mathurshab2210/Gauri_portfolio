@@ -147,4 +147,76 @@ nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
   revealOnScroll();
 
 
-// carousel effecct
+
+
+  // ================= VG CAROUSEL CONTROLLER =================
+
+const vgCarouselTrack = document.querySelector('.vg-carousel');
+const vgSlides = document.querySelectorAll('.vg-slide');
+const vgNavDots = document.querySelectorAll('.vg-mobile-nav button');
+const vgPrevArrow = document.querySelector('.vg-prev');
+const vgNextArrow = document.querySelector('.vg-next');
+
+let vgCurrentIndex = 0;
+const vgTotalSlides = vgSlides.length;
+
+// ---------------- Slide Change Core ----------------
+function vgGoToSlide(index) {
+  if (index < 0) index = vgTotalSlides - 1;
+  if (index >= vgTotalSlides) index = 0;
+
+  // Move carousel
+  vgCarouselTrack.style.transform = `translateX(-${index * 100}%)`;
+
+  // Update nav dots
+  vgNavDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+
+  // 🔑 Mark active gallery (for mobile 3-image rule)
+  vgSlides.forEach((slide, i) => {
+    const gallery = slide.querySelector('.vg-gallery');
+    if (gallery) {
+      gallery.classList.toggle('active-slide', i === index);
+    }
+  });
+
+  vgCurrentIndex = index;
+}
+
+// ---------------- Mobile Nav Dots ----------------
+vgNavDots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    vgGoToSlide(i);
+  });
+});
+
+// ---------------- Arrow Navigation (Desktop) ----------------
+vgPrevArrow.addEventListener('click', () => {
+  vgGoToSlide(vgCurrentIndex - 1);
+});
+
+vgNextArrow.addEventListener('click', () => {
+  vgGoToSlide(vgCurrentIndex + 1);
+});
+
+// ---------------- Swipe Support (Mobile) ----------------
+let vgStartX = 0;
+
+vgCarouselTrack.addEventListener('touchstart', (e) => {
+  vgStartX = e.touches[0].clientX;
+});
+
+vgCarouselTrack.addEventListener('touchend', (e) => {
+  const vgEndX = e.changedTouches[0].clientX;
+  const diff = vgStartX - vgEndX;
+
+  if (Math.abs(diff) > 50) {
+    diff > 0
+      ? vgGoToSlide(vgCurrentIndex + 1)
+      : vgGoToSlide(vgCurrentIndex - 1);
+  }
+});
+
+// ---------------- Init ----------------
+vgGoToSlide(0);
